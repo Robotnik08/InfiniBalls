@@ -24,3 +24,4 @@ function update () {
     can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
     requestAnimationFrame(update);
 }
+update();
