@@ -1,4 +1,5 @@
-import { Canvas } from "./exports/canvasHandler.js";
+import { Canvas } from "./exports/canvasHandler.js"
+import { Colour } from "./exports/colour.js"
 import * as VECTOR from "./exports/vector.js";
 // canvasInit
 
@@ -21,6 +22,7 @@ function requestPermission () {
 requestPermission();
 function update () {
     can.clear();
+    can.setColour(new Colour(0,0,0));
     can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
     requestAnimationFrame(update);
 }
