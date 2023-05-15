@@ -21,7 +21,7 @@ function requestPermission () {
 requestPermission();
 function update () {
     can.clear();
-    can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
+    can.drawCircle(new VECTOR.Vector2(tiltValue.y,tiltValue.z), 50);
     requestAnimationFrame(update);
 }
 update();
