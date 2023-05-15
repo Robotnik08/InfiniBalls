@@ -11,7 +11,7 @@ function requestPermission () {
     document.getElementById("test-values").innerHTML = "Hoi Hoi";
     try {
         DeviceOrientationEvent.requestPermission().then((response) => {
-            document.getElementById("test-values").innerHTML = response;
+            document.getElementById("test-values").innerHTML = response + "HELP";
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (event) => {
                     tiltValue.set(event.alpha,event.beta,event.gamma);
