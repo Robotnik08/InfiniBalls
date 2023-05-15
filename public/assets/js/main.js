@@ -4,7 +4,6 @@ import * as VECTOR from "./exports/vector.js";
 
 const can = new Canvas(new VECTOR.Vector2(500,500));
 can.addToDocument();
-can.drawCircle(new VECTOR.Vector2(250,250), 50);
 
 const tiltValue = new VECTOR.Vector3(0,0,0);
 function requestPermission () {
@@ -19,4 +18,9 @@ function requestPermission () {
         }
     });
 }
-document.getElementById("btn").addEventListener("click", requestPermission);
+requestPermission();
+function update () {
+    can.clear();
+    can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
+    requestAnimationFrame(update);
+}
