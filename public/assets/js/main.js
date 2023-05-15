@@ -21,10 +21,9 @@ function requestPermission () {
 update();
 requestPermission();
 function update () {
-    document.getElementById("test-values").innerHTML = "HELP!";
     can.clear();
     can.setColour(new Colour(0,0,0));
-    //document.getElementById("test-values").innerHTML = new VECTOR.Vector2(Math.round(tiltValue.y+250),Math.round(tiltValue.z+250));
-    //can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);WHDhaefaf
+    document.getElementById("test-values").innerHTML = new VECTOR.Vector2(Math.round(tiltValue.y+250),Math.round(tiltValue.z+250));
+    can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
     requestAnimationFrame(update);
 }
