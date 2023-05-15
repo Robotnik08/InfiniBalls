@@ -24,7 +24,7 @@ function update () {
     can.clearCanvas();
     can.setColour(new Colour(0,0,0));
     const ballPos = new VECTOR.Vector2(Math.round(tiltValue.z+250),Math.round(tiltValue.y+250));
-    document.getElementById("test-values").innerHTML = ballPos;
+    document.getElementById("test-values").innerHTML = ballPos + Math.random();
     can.drawCircle(ballPos, 50);
     requestAnimationFrame(update);
 }
