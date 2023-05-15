@@ -23,7 +23,8 @@ requestPermission();
 function update () {
     can.clearCanvas();
     can.setColour(new Colour(0,0,0));
-    document.getElementById("test-values").innerHTML = new VECTOR.Vector2(Math.round(tiltValue.y+250),Math.round(tiltValue.z+250));
-    can.drawCircle(new VECTOR.Vector2(tiltValue.y+250,tiltValue.z+250), 50);
+    const ballPos = new VECTOR.Vector2(Math.round(tiltValue.z+250),Math.round(tiltValue.y+250));
+    document.getElementById("test-values").innerHTML = ballPos;
+    can.drawCircle(ballPos, 50);
     requestAnimationFrame(update);
 }
