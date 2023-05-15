@@ -9,15 +9,20 @@ can.addToDocument();
 const tiltValue = new VECTOR.Vector3(0,0,0);
 function requestPermission () {
     document.getElementById("test-values").innerHTML = "Hoi Hoi";
-    DeviceOrientationEvent.requestPermission().then((response) => {
-        document.getElementById("test-values").innerHTML = response;
-        if (response == "granted") {
-            window.addEventListener("deviceorientation", (event) => {
-                tiltValue.set(event.alpha,event.beta,event.gamma);
-
-            });
-        }
-    });
+    try {
+        DeviceOrientationEvent.requestPermission().then((response) => {
+            document.getElementById("test-values").innerHTML = response;
+            if (response == "granted") {
+                window.addEventListener("deviceorientation", (event) => {
+                    tiltValue.set(event.alpha,event.beta,event.gamma);
+    
+                });
+            }
+        });
+    }
+    catch (e) {
+        document.getElementById("test-values").innerHTML = e;
+    }
 }
 update();
 requestPermission();
