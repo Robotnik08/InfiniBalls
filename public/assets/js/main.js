@@ -26,6 +26,7 @@ function requestPermission () {
 }
 update();
 requestPermission();
+document.getElementById("btn").addEventListener("click",requestPermission);
 function update () {
     can.clearCanvas();
     can.setColour(new Colour(0,0,0));
