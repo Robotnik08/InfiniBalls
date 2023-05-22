@@ -8,9 +8,8 @@ can.addToDocument();
 
 const tiltValue = new VECTOR.Vector3(0,0,0);
 function requestPermission () {
-    document.getElementById("test-values").innerHTML = "Hoi Hoi";
     try {
-        document.getElementById("test-values").innerHTML = "Tried";
+        document.getElementById("test-values").innerHTML = "Tried" + Math.random();
         DeviceOrientationEvent.requestPermission().then((response) => {
             document.getElementById("test-values").innerHTML = response + "HELP";
             if (response == "granted") {
