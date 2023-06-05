@@ -11,14 +11,14 @@ const can = new Canvas(size);
 can.addToDocument();
 
 const tiltValue = new Vector3(0,0,0);
+window.addEventListener("deviceorientation", (event) => {
+    tiltValue.set(event.alpha,event.beta,event.gamma);
+});
 function requestPermissionForIOS() {
     window.DeviceOrientationEvent.requestPermission()
         .then(response => {
             if (response === 'granted') {
                 document.getElementById("test-values").innerHTML = "granted!";
-                window.addEventListener("deviceorientation", (event) => {
-                    tiltValue.set(event.alpha,event.beta,event.gamma);
-                });
             } else {
                 document.getElementById("test-values").innerHTML = "denied!";
             }
