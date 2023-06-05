@@ -16,6 +16,8 @@ function requestPermissionForIOS() {
                 tiltValue.set(event.alpha,event.beta,event.gamma);
             
             });
+        } else {
+            document.getElementById("test-values").innerHTML = "denied!";
         }
       }).catch((e) => {
         console.error(e);
