@@ -11,6 +11,7 @@ function requestPermissionForIOS() {
     window.DeviceOrientationEvent.requestPermission()
       .then(response => {
         if (response === 'granted') {
+            document.getElementById("test-values").innerHTML = "granted";
             window.addEventListener("deviceorientation", (event) => {
                 tiltValue.set(event.alpha,event.beta,event.gamma);
             
