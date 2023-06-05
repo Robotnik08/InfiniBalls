@@ -3,6 +3,7 @@ import { Colour } from "./exports/colour.js";
 import { Vector2 } from "./exports/vector.js";
 import { Vector3 } from "./exports/vector.js";
 import { Enviroment } from "./exports/physics.js";
+import * as env from "./exports/physics.js";
 // canvasInit
 
 const size = new Vector2(3900,3900);
@@ -35,7 +36,7 @@ function update () {
 }
 const amount = 1;
 for (let i = 0; i < amount; i++) {
-    //main.addShape(getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
-    main.addShape(getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
+    //main.addShape(env.getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
+    main.addShape(env.getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
 }
 update();
