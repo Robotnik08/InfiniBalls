@@ -54,6 +54,7 @@ export class Vector2 {
             this.y = newY;
             if (returnCopy) return new Vector2(this.x,this.y);
         }
+        //clone
         this.clone = () => {
             return new Vector2(this.x,this.y);
         }
