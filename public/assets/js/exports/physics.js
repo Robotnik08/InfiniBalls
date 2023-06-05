@@ -1,3 +1,4 @@
+import { Vector2 } from "./vector.js";
 export class Point {
     constructor (p,r,c,b,d,v) {
         this.pos = p;
