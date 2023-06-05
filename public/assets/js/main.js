@@ -1,34 +1,41 @@
 import { Canvas } from "./exports/canvasHandler.js"
-import { Colour } from "./exports/colour.js"
-import * as VECTOR from "./exports/vector.js";
+import { Colour } from "./exports/colour.js";
+import { Vector2 } from "./exports/vector.js";
+import { Vector3 } from "./exports/vector.js";
+import { Enviroment } from "./exports/physics.js";
 // canvasInit
 
-const can = new Canvas(new VECTOR.Vector2(500,500));
+const size = new Vector2(3900,3900);
+const can = new Canvas(size);
 can.addToDocument();
 
-const tiltValue = new VECTOR.Vector3(0,0,0);
+const tiltValue = new Vector3(0,0,0);
 function requestPermissionForIOS() {
     window.DeviceOrientationEvent.requestPermission()
-      .then(response => {
-        if (response === 'granted') {
-            document.getElementById("test-values").innerHTML = "granted!";
-            window.addEventListener("deviceorientation", (event) => {
-                tiltValue.set(event.alpha,event.beta,event.gamma);
-            
-            });
-        } else {
-            document.getElementById("test-values").innerHTML = "denied!";
-        }
-      }).catch((e) => {
-        console.error(e);
-      })
-  }
-update();
-document.getElementById("btn").addEventListener("click",requestPermissionForIOS);
+        .then(response => {
+            if (response === 'granted') {
+                document.getElementById("test-values").innerHTML = "granted!";
+                window.addEventListener("deviceorientation", (event) => {
+                    tiltValue.set(event.alpha,event.beta,event.gamma);
+                });
+            } else {
+                document.getElementById("test-values").innerHTML = "denied!";
+            }
+        }).catch((e) => {
+            console.error(e);
+        })
+}
+if (window.DeviceOrientationEvent.requestPermission) document.getElementById("btn").addEventListener("click",requestPermissionForIOS);
+
+const main = new Enviroment (size,new Vector2(0,0.1), 1);
 function update () {
-    can.clearCanvas();
-    can.setColour(new Colour(0,0,0));
-    //document.getElementById("test-values").innerHTML = new VECTOR.Vector2(Math.round(tiltValue.y+250),Math.round(tiltValue.z+250));
-    can.drawCircle(new VECTOR.Vector2(tiltValue.z+250,tiltValue.y+250), 50);
+    main.draw(can);
+    main.solvePhysics();
     requestAnimationFrame(update);
 }
+const amount = 1;
+for (let i = 0; i < amount; i++) {
+    //main.addShape(getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
+    main.addShape(getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
+}
+update();
