@@ -10,7 +10,7 @@ const tiltValue = new VECTOR.Vector3(0,0,0);
 function requestPermission () {
     try {
         document.getElementById("test-values").innerHTML = "Tried" + Math.random();
-        DeviceOrientationEvent.requestPermission().then((response) => {
+        window.DeviceOrientationEvent.requestPermission().then((response) => {
             document.getElementById("test-values").innerHTML = response + "HELP";
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (event) => {
