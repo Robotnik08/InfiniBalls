@@ -33,7 +33,7 @@ function update () {
     main.draw(can);
     main.solvePhysics();
     //tilt
-    main.gravity = new Vector2(tiltValue.x,tiltValue.y).normalize();
+    main.gravity = new Vector2(tiltValue.x,tiltValue.y).normalize(true);
     requestAnimationFrame(update);
 }
 const amount = 100;
