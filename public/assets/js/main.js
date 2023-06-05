@@ -38,7 +38,7 @@ function update () {
 }
 const amount = 100;
 for (let i = 0; i < amount; i++) {
-    main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,255,255,1),20,0.9,0.5));
+    main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,255,255,1),20,0.9,0));
     //main.addShape(env.getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
     //main.addShape(env.getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
 }
