@@ -6,7 +6,7 @@ import { Enviroment } from "./exports/physics.js";
 import * as env from "./exports/physics.js";
 // canvasInit
 
-const size = new Vector2(3900,3900);
+const size = new Vector2(1000,1000);
 const can = new Canvas(size);
 can.addToDocument();
 
@@ -34,9 +34,10 @@ function update () {
     main.solvePhysics();
     requestAnimationFrame(update);
 }
-const amount = 1;
+const amount = 100;
 for (let i = 0; i < amount; i++) {
+    main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,0,0,1),1,0.9,0.5));
     //main.addShape(env.getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
-    main.addShape(env.getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
+    //main.addShape(env.getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
 }
 update();
