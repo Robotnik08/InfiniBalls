@@ -132,7 +132,7 @@ export class Enviroment {
                 change.add(i.velocity);
                 change.add(this.gravity);
                 i.velocity = change;
-                i.constrain(size);
+                i.constrain(this.size);
                 i.pos.add(i.velocity);
                 for (let j = 0; j < this.iterations; j++) {
                     i.solveCollisions(this.points);
