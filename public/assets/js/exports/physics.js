@@ -194,3 +194,8 @@ export function getRect (size,pos,c,h,r,b,d) {
     }
     return ret;
 }
+export function getPoint (pos,c,r,b,d) {
+    let ret = {points: [], welds: []};
+    ret.points.push(new Point(pos,r,c,b,d,new Vector2(0,0)));
+    return ret;
+}
