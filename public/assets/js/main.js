@@ -32,7 +32,7 @@ const main = new Enviroment (size,new Vector2(0,0.1), 1);
 function update () {
     main.draw(can);
     main.solvePhysics();
-    main.gravity = new Vector2(tiltValue.x,tiltValue.y);
+    main.gravity = new Vector2(tiltValue.x,tiltValue.y).normalize();
     requestAnimationFrame(update);
 }
 const amount = 100;
