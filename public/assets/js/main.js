@@ -7,25 +7,21 @@ const can = new Canvas(new VECTOR.Vector2(500,500));
 can.addToDocument();
 
 const tiltValue = new VECTOR.Vector3(0,0,0);
-function requestPermission () {
-    try {
-        document.getElementById("test-values").innerHTML = "Tried" + Math.random();
-        window.DeviceOrientationEvent.requestPermission().then((response) => {
-            document.getElementById("test-values").innerHTML = response + "HELP";
-            if (response == "granted") {
-                window.addEventListener("deviceorientation", (event) => {
-                    tiltValue.set(event.alpha,event.beta,event.gamma);
-    
-                });
-            }
-        });
-    }
-    catch (e) {
-        document.getElementById("test-values").innerHTML = e;
-    }
-}
+function requestPermissionForIOS() {
+    window.DeviceOrientationEvent.requestPermission()
+      .then(response => {
+        if (response === 'granted') {
+            window.addEventListener("deviceorientation", (event) => {
+                tiltValue.set(event.alpha,event.beta,event.gamma);
+            
+            });
+        }
+      }).catch((e) => {
+        console.error(e);
+      })
+  }
 update();
-requestPermission();
+requestPermissionForIOS();
 document.getElementById("btn").addEventListener("click",requestPermission);
 function update () {
     can.clearCanvas();
