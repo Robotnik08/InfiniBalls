@@ -24,8 +24,7 @@ function requestPermissionForIOS() {
       })
   }
 update();
-requestPermissionForIOS();
-document.getElementById("btn").addEventListener("click",requestPermission);
+document.getElementById("btn").addEventListener("click",requestPermissionForIOS);
 function update () {
     can.clearCanvas();
     can.setColour(new Colour(0,0,0));
