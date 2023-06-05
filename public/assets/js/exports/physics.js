@@ -131,7 +131,7 @@ export class Enviroment {
                 const change = new Vector2(0,0);
                 change.add(i.velocity);
                 change.add(this.gravity);
-                i.velocity = change; //random comment
+                i.velocity = change;
                 i.constrain(this.size);
                 i.pos.add(i.velocity);
                 for (let j = 0; j < this.iterations; j++) {
