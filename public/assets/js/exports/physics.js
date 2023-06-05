@@ -194,6 +194,7 @@ export function getRect (size,pos,c,h,r,b,d) {
     }
     return ret;
 }
+//single point
 export function getPoint (pos,c,r,b,d) {
     return new Point(pos,r,c,b,d,new Vector2(0,0));
 }
