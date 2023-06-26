@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Super Slome Maker</title>
-        <script type="module" src="./assets/js/main.js"></script>
-        <link rel="stylesheet" href="./assets/css/style.css">
-    </head>
-    <body>
-        <h1 id="test-values">Test</h1>
-        <button id="btn">Request</button>
-    </body>
+<html>
+<head>
+  <title>Ball Simulation</title>
+  <script>
+    function startSimulation() {
+      var numBalls = document.getElementById("num-balls").value;
+      var url = "game/index.html?num-balls=" + encodeURIComponent(numBalls);
+      window.location.href = url;
+      return false; // Prevent form submission
+    }
+  </script>
+</head>
+<body>
+  <h1>Ball Simulation</h1>
+  
+  <form onsubmit="return startSimulation()">
+    <label for="num-balls">Number of Balls:</label>
+    <input type="number" id="num-balls" name="num-balls" min="1" required>
+    <br><br>
+    <input type="submit" value="Start Simulation">
+  </form>
+</body>
 </html>
