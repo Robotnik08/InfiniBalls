@@ -17,17 +17,16 @@ window.addEventListener("deviceorientation", (event) => {
 function requestPermissionForIOS() {
     window.DeviceOrientationEvent.requestPermission()
         .then(response => {
-            if (response === 'granted') {
-                document.getElementById("test-values").innerHTML = "granted!";
-            } else {
-                document.getElementById("test-values").innerHTML = "denied!";
-            }
+
         }).catch((e) => {
             console.error(e);
         })
 }
-if (window.DeviceOrientationEvent.requestPermission) document.getElementById("btn").addEventListener("click",requestPermissionForIOS);
-
+if (window.DeviceOrientationEvent.requestPermission) document.body.addEventListener("click",requestPermissionForIOS);
+document.getElementById("btn").addEventListener("click",returnToMenu);
+function returnToMenu() {
+    window.location.href = "../";
+}
 const main = new Enviroment (size,new Vector2(0,0.1), 1);
 function update () {
     main.draw(can);
