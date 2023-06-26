@@ -6,7 +6,7 @@ import { Enviroment } from "./exports/physics.js";
 import * as env from "./exports/physics.js";
 // canvasInit
 
-const size = new Vector2(1000,1000);
+const size = new Vector2(window.innerWidth,window.innerHeight);
 const can = new Canvas(size);
 can.addToDocument();
 
