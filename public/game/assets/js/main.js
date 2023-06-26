@@ -36,7 +36,7 @@ function update () {
     main.gravity = new Vector2(tiltValue.z/250,tiltValue.y/250);
     requestAnimationFrame(update);
 }
-const amount = 350;
+const amount = getQueryStringValue("num-balls");
 for (let i = 0; i < amount; i++) {
     main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,255,255,1),15,0,1));
     //main.addShape(env.getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
