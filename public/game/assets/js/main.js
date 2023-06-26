@@ -38,8 +38,9 @@ function update () {
 const queryString = window.location.search.substring(1);
 const urlParams = new URLSearchParams(queryString);
 const amount = urlParams.get("num-balls");
+const radius = urlParams.get("size-balls");	
 for (let i = 0; i < amount; i++) {
-    main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,255,255,1),15,0,1));
+    main.addPoint(env.getPoint(env.getRandomPosition(size),new Colour(0,255,255,1),radius,0,1));
     //main.addShape(env.getWheel(4,90,new Vector2(100,100),new Colour(0,0,0,1),1,0.9,0.5));
     //main.addShape(env.getRect(new Vector2(1000,1000),new Vector2(100,100),new Colour(0,0,0,1),499,100,0.9,0.5));
 }

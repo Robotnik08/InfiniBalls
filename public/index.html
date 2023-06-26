@@ -58,7 +58,7 @@
         <script>
             function startSimulation() {
                 var numBalls = document.getElementById("num-balls").value;
-                var url = "game/index.html?num-balls=" + encodeURIComponent(numBalls);
+                var url = "game/index.html?num-balls=" + encodeURIComponent(numBalls) + "&size-balls=" + encodeURIComponent(document.getElementById("size-balls").value);
                 window.location.href = url;
                 return false; // Prevent form submission
             }
@@ -70,6 +70,7 @@
         <form onsubmit="return startSimulation()">
             <label for="num-balls">Number of Balls:</label>
             <input type="number" id="num-balls" name="num-balls" min="1" required>
+            <input type="number" id="size-balls" name="size-balls" min="1" required>
             <br><br>
             <input type="submit" value="Start Simulation">
         </form>
